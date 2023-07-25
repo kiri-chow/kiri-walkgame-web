@@ -98,7 +98,7 @@ class PathFinding {
         // init data
         let end = false
         let currentPoint = this.getCurrentPoint()
-        this.opened = this.opened.filter((el) => el != currentPoint)
+        this.opened = this.opened.filter((el) => el !== currentPoint)
         if (!this.closed.includes(currentPoint)){
             this.closed.push(currentPoint)
         }
@@ -128,7 +128,7 @@ class PathFinding {
             if (!this.opened.includes(point) || mCost < this.dataPoints[point][1]){
                 this.dataPoints[point] = [cCost, mCost, currentPoint]
                 if (this.opened.includes(point)) {
-                    this.opened = this.opened.filter((el) => el != point)
+                    this.opened = this.opened.filter((el) => el !== point)
                 }
                 this.opened.push(point)
             }
@@ -171,7 +171,7 @@ class PathFinding {
 
     getPath(target) {
         let inData = this.dataPoints[target]
-        if (inData == undefined) {
+        if (inData === undefined) {
             return []
         }
 
